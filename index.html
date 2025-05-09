@@ -8,29 +8,38 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #ffb6c1, #ffe4e1);
-      color: #333;
+      background-color: #fdf5f7;
+      color: #222;
     }
     .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 30px 20px;
-      background-color: #fff0f5;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
     }
-    h1, h2 {
+    h1 {
       text-align: center;
-      color: #d63384;
+      color: #c2185b;
+      font-size: 36px;
       margin-bottom: 10px;
     }
+    h2 {
+      text-align: center;
+      color: #555;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
     h3 {
-      color: #c2185b;
+      color: #b71c1c;
+      font-size: 20px;
+      margin-bottom: 10px;
       border-bottom: 2px solid #f8bbd0;
       padding-bottom: 5px;
     }
     .service-category {
-      margin-top: 30px;
+      margin-bottom: 30px;
     }
     ul {
       list-style: none;
@@ -40,17 +49,25 @@
     li {
       display: flex;
       justify-content: space-between;
-      padding: 12px 10px;
-      background-color: #ffe6ec;
-      border-radius: 8px;
+      align-items: center;
+      padding: 12px 20px;
+      background-color: #fce4ec;
+      border-radius: 6px;
       margin-bottom: 10px;
       font-size: 16px;
+      transition: all 0.2s ease;
+    }
+    li:hover {
+      background-color: #f8bbd0;
     }
     li span:last-child {
-      font-weight: bold;
-      color: #e91e63;
+      font-weight: 600;
+      color: #880e4f;
     }
     @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
       li {
         flex-direction: column;
         align-items: flex-start;
@@ -64,7 +81,7 @@
 <body>
   <div class="container">
     <h1>SalonBlackPnk</h1>
-    <h2>Price List</h2>
+    <h2>Professional Beauty Services</h2>
 
     <div class="service-category">
       <h3>Hair Services</h3>
