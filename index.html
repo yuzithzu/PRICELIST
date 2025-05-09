@@ -47,33 +47,27 @@
       margin: 0;
     }
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 12px 20px;
       background-color: #fce4ec;
       border-radius: 6px;
       margin-bottom: 10px;
       font-size: 16px;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
     }
-    li:hover {
-      background-color: #f8bbd0;
-    }
-    li span:last-child {
-      font-weight: 600;
+    li .price {
+      display: none;
+      margin-top: 8px;
+      font-weight: bold;
       color: #880e4f;
+    }
+    li.active .price {
+      display: block;
     }
     @media (max-width: 600px) {
       .container {
         padding: 20px;
-      }
-      li {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      li span:last-child {
-        margin-top: 5px;
       }
     }
   </style>
@@ -86,27 +80,27 @@
     <div class="service-category">
       <h3>Hair Services</h3>
       <ul>
-        <li><span>Hair Cut</span><span>PHP 150.00</span></li>
-        <li><span>Hair Color with Trim (Short)</span><span>PHP 500.00</span></li>
-        <li><span>Hair Color with Trim (Long)</span><span>PHP 1,000.00</span></li>
-        <li><span>Ash Gray (Short)</span><span>PHP 1,500.00</span></li>
-        <li><span>Ash Gray (Long)</span><span>PHP 2,000.00</span></li>
-        <li><span>Cold Wave (Short)</span><span>PHP 800.00</span></li>
-        <li><span>Cold Wave (Long)</span><span>PHP 1,500.00</span></li>
-        <li><span>Treatment (Hair Spa) Any Length</span><span>PHP 500.00</span></li>
-        <li><span>Hi Lite (Short)</span><span>PHP 500.00</span></li>
-        <li><span>Hi Lite (Long)</span><span>PHP 1,000.00</span></li>
-        <li><span>Rebond (Short)</span><span>PHP 1,000.00</span></li>
-        <li><span>Rebond with Color Brazilian (Long)</span><span>PHP 2,500.00</span></li>
-        <li><span>Rebond with Color Brazilian (Short)</span><span>PHP 2,000.00</span></li>
+        <li onclick="this.classList.toggle('active')">Hair Cut<div class="price">PHP 150.00</div></li>
+        <li onclick="this.classList.toggle('active')">Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="this.classList.toggle('active')">Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
+        <li onclick="this.classList.toggle('active')">Cold Wave (Short)<div class="price">PHP 800.00</div></li>
+        <li onclick="this.classList.toggle('active')">Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Hi Lite (Short)<div class="price">PHP 500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="this.classList.toggle('active')">Rebond (Short)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="this.classList.toggle('active')">Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
+        <li onclick="this.classList.toggle('active')">Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
       </ul>
     </div>
 
     <div class="service-category">
       <h3>Hand and Foot Services</h3>
       <ul>
-        <li><span>Manicure</span><span>PHP 150.00</span></li>
-        <li><span>Pedicure</span><span>PHP 150.00</span></li>
+        <li onclick="this.classList.toggle('active')">Manicure<div class="price">PHP 150.00</div></li>
+        <li onclick="this.classList.toggle('active')">Pedicure<div class="price">PHP 150.00</div></li>
       </ul>
     </div>
   </div>
