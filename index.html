@@ -1,207 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SalonBlackPnk Price List</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap');
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff0f5;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #ffe4f2, #ffcce0);
       color: #222;
     }
-
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
-      padding: 40px;
-      background-color: #ffffffee;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      background-color: #fff8fc;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
     }
-
     h1 {
       text-align: center;
       color: #d81b60;
-      font-size: 42px;
-      margin-bottom: 5px;
-      letter-spacing: 1px;
+      font-size: 48px;
+      margin-bottom: 10px;
+      font-family: 'Pacifico', cursive;
     }
-
+    .media a {
+      display: block;
+      margin: 10px auto 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #ec407a;
+      font-weight: bold;
+      text-decoration: none;
+    }
     h2 {
       text-align: center;
-      color: #6a1b9a; /* Violet */
-      font-size: 18px;
-      margin-bottom: 30px;
+      color: #8e24aa;
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
-
+    .media {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .media img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
     h3 {
-      color: #c2185b;
+      color: #b71c1c;
       font-size: 22px;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #f48fb1;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #f9a8d4;
       padding-bottom: 6px;
     }
-
-    .service-category {
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       margin-bottom: 30px;
     }
-
+    .tab {
+      background-color: #f8bbd0;
+      color: #880e4f;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .tab.active {
+      background-color: #ec407a;
+      color: #fff;
+    }
+    .service-category {
+      display: none;
+    }
+    .service-category.active {
+      display: block;
+    }
     ul {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
-
     li {
-      background-color: #fce4ec;
-      border: 1px solid #f8bbd0;
-      border-radius: 12px;
-      padding: 16px 20px;
+      background-color: #ffe4f2;
+      border-radius: 10px;
+      padding: 14px 20px;
       margin-bottom: 12px;
       font-size: 17px;
       font-weight: 500;
       position: relative;
       cursor: pointer;
-      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 1px 1px 3px #f9a8d4, inset -1px -1px 3px #fff;
       transition: all 0.3s ease;
     }
-
     li:hover {
-      background-color: #f8bbd0;
+      background-color: #f9a8d4;
     }
-
     li::after {
       content: '+';
       position: absolute;
       right: 20px;
       font-weight: bold;
-      color: #c2185b;
+      color: #880e4f;
       font-size: 20px;
       transition: transform 0.3s ease;
     }
-
     li.active::after {
       content: '-';
       transform: rotate(180deg);
     }
-
     .price {
       display: none;
       margin-top: 10px;
       font-weight: bold;
-      color: #ad1457;
-      font-size: 16px;
+      color: #c2185b;
+      font-size: 17px;
     }
-
     li.active .price {
       display: block;
     }
-
     .datetime {
       text-align: center;
       margin-top: 40px;
       font-size: 14px;
-      color: #d81b60;
+      color: #6a1b9a;
       font-weight: 500;
     }
-
-    .media-sample {
-      display: block;
-      max-width: 300px;
-      width: 100%;
-      margin: 20px auto 10px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-link {
-      display: block;
-      text-align: center;
-      font-weight: 600;
-      color: #c2185b;
-      text-decoration: none;
-      margin-bottom: 30px;
-    }
-
-    .video-link:hover {
-      text-decoration: underline;
-    }
-
     @media (max-width: 600px) {
       .container {
         padding: 20px;
       }
-
-      h1 {
-        font-size: 32px;
-      }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.service-category').forEach(cat => cat.classList.remove('active'));
+
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.target).classList.add('active');
+        });
+      });
+
+      const datetimeEl = document.getElementById('datetime');
+      function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const date = now.toLocaleDateString(undefined, options);
+        const time = now.toLocaleTimeString();
+        datetimeEl.textContent = `Today is ${date}, ${time}`;
+      }
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+    });
+  </script>
 </head>
 <body>
   <div class="container">
-    <h1>SalonBlackPnk</h1>
+    <h1 style="font-family: 'Pacifico', cursive;">SalonBlackPnk</h1>
     <h2>Professional Beauty Services</h2>
+    <div class="media">
+      <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/277554767_393993086065557_4911658283217571871_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TaohwAOCq1cQ7kNvwFtGn9r&_nc_oc=Adljxsmd3BKzNMgccfv6L_xVrSrV9_dWGeFOrwC4hGKI1QIPoReN6IDx554mTGTSf0Y&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=uFyZ_d1OFGZpr4KEV1Bvsw&oh=00_AfJ-Ez8-yyG42uhujRdeiNQjPTb84fSbJjVUm7re0D8vAg&oe=6823803E" alt="Salon Service Preview">
+      <a href="https://www.facebook.com/reel/909094560064871" target="_blank">Click here to watch our services</a>
+    </div>
 
-    <img 
-      src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/277554767_393993086065557_4911658283217571871_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TaohwAOCq1cQ7kNvwFtGn9r&_nc_oc=Adljxsmd3BKzNMgccfv6L_xVrSrV9_dWGeFOrwC4hGKI1QIPoReN6IDx554mTGTSf0Y&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=uFyZ_d1OFGZpr4KEV1Bvsw&oh=00_AfJ-Ez8-yyG42uhujRdeiNQjPTb84fSbJjVUm7re0D8vAg&oe=6823803E" 
-      alt="Salon Service Sample"
-      class="media-sample"
-    />
+    <div class="tabs">
+      <div class="tab active" data-target="hair">Hair Services</div>
+      <div class="tab" data-target="handfoot">Hand & Foot</div>
+    </div>
 
-    <a href="https://www.facebook.com/reel/909094560064871" target="_blank" class="video-link">
-      👉 Click here to watch our services
-    </a>
-
-    <div class="service-category">
+    <div id="hair" class="service-category active">
       <h3>Hair Services</h3>
       <ul>
-        <li onclick="togglePrice(this)">Hair Cut<div class="price">PHP 150.00</div></li>
-        <li onclick="togglePrice(this)">Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
-        <li onclick="togglePrice(this)">Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="togglePrice(this)">Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
-        <li onclick="togglePrice(this)">Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
-        <li onclick="togglePrice(this)">Cold Wave (Short)<div class="price">PHP 800.00</div></li>
-        <li onclick="togglePrice(this)">Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
-        <li onclick="togglePrice(this)">Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
-        <li onclick="togglePrice(this)">Hi Lite (Short)<div class="price">PHP 500.00</div></li>
-        <li onclick="togglePrice(this)">Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="togglePrice(this)">Rebond (Short)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="togglePrice(this)">Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
-        <li onclick="togglePrice(this)">Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
+        <li>Hair Cut<div class="price">PHP 150.00</div></li>
+        <li>Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
+        <li>Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
+        <li>Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
+        <li>Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
+        <li>Cold Wave (Short)<div class="price">PHP 800.00</div></li>
+        <li>Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
+        <li>Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
+        <li>Hi Lite (Short)<div class="price">PHP 500.00</div></li>
+        <li>Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
+        <li>Rebond (Short)<div class="price">PHP 1,000.00</div></li>
+        <li>Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
+        <li>Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
       </ul>
     </div>
 
-    <div class="service-category">
+    <div id="handfoot" class="service-category">
       <h3>Hand and Foot Services</h3>
       <ul>
-        <li onclick="togglePrice(this)">Manicure<div class="price">PHP 150.00</div></li>
-        <li onclick="togglePrice(this)">Pedicure<div class="price">PHP 150.00</div></li>
+        <li>Manicure<div class="price">PHP 150.00</div></li>
+        <li>Pedicure<div class="price">PHP 150.00</div></li>
       </ul>
     </div>
 
     <div class="datetime" id="datetime"></div>
   </div>
-
-  <script>
-    function togglePrice(element) {
-      element.classList.toggle('active');
-    }
-
-    const datetimeEl = document.getElementById('datetime');
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const date = now.toLocaleDateString(undefined, options);
-      const time = now.toLocaleTimeString();
-      datetimeEl.textContent = `Today is ${date}, ${time}`;
-    }
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
 </body>
 </html>
