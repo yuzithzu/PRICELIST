@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #f8bbd0, #fce4ec);
+      background: linear-gradient(to bottom right, #f9a8d4, #fcdde9);
       color: #222;
     }
     .container {
@@ -22,13 +22,14 @@
     }
     h1 {
       text-align: center;
-      color: #c2185b;
+      color: #d81b60;
       font-size: 40px;
       margin-bottom: 5px;
+      animation: blink 1s infinite;
     }
     h2 {
       text-align: center;
-      color: #6a1b9a;
+      color: #7b1fa2;
       font-size: 18px;
       margin-bottom: 30px;
     }
@@ -36,7 +37,7 @@
       color: #b71c1c;
       font-size: 22px;
       margin-bottom: 10px;
-      border-bottom: 2px solid #f8bbd0;
+      border-bottom: 2px solid #f9a8d4;
       padding-bottom: 5px;
     }
     .service-category {
@@ -48,7 +49,7 @@
       margin: 0;
     }
     li {
-      background-color: #fce4ec;
+      background-color: #fcdde9;
       border-radius: 8px;
       padding: 14px 20px;
       margin-bottom: 12px;
@@ -59,7 +60,7 @@
       transition: all 0.3s ease;
     }
     li:hover {
-      background-color: #f8bbd0;
+      background-color: #f9a8d4;
     }
     li::after {
       content: '+';
@@ -80,14 +81,19 @@
       font-weight: bold;
       color: #880e4f;
       font-size: 16px;
+      animation: blink 1s infinite;
     }
     li.active .price {
       display: block;
-      animation: fadeIn 0.3s ease-in-out;
+      animation: fadeIn 0.3s ease-in-out, blink 1s infinite;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-5px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
     @media (max-width: 600px) {
       .container {
@@ -95,6 +101,15 @@
       }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -104,27 +119,27 @@
     <div class="service-category">
       <h3>Hair Services</h3>
       <ul>
-        <li onclick="this.classList.toggle('active')">Hair Cut<div class="price">PHP 150.00</div></li>
-        <li onclick="this.classList.toggle('active')">Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="this.classList.toggle('active')">Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
-        <li onclick="this.classList.toggle('active')">Cold Wave (Short)<div class="price">PHP 800.00</div></li>
-        <li onclick="this.classList.toggle('active')">Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Hi Lite (Short)<div class="price">PHP 500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="this.classList.toggle('active')">Rebond (Short)<div class="price">PHP 1,000.00</div></li>
-        <li onclick="this.classList.toggle('active')">Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
-        <li onclick="this.classList.toggle('active')">Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
+        <li>Hair Cut<div class="price">PHP 150.00</div></li>
+        <li>Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
+        <li>Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
+        <li>Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
+        <li>Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
+        <li>Cold Wave (Short)<div class="price">PHP 800.00</div></li>
+        <li>Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
+        <li>Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
+        <li>Hi Lite (Short)<div class="price">PHP 500.00</div></li>
+        <li>Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
+        <li>Rebond (Short)<div class="price">PHP 1,000.00</div></li>
+        <li>Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
+        <li>Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
       </ul>
     </div>
 
     <div class="service-category">
       <h3>Hand and Foot Services</h3>
       <ul>
-        <li onclick="this.classList.toggle('active')">Manicure<div class="price">PHP 150.00</div></li>
-        <li onclick="this.classList.toggle('active')">Pedicure<div class="price">PHP 150.00</div></li>
+        <li>Manicure<div class="price">PHP 150.00</div></li>
+        <li>Pedicure<div class="price">PHP 150.00</div></li>
       </ul>
     </div>
   </div>
