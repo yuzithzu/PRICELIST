@@ -8,32 +8,33 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdf5f7;
+      background: linear-gradient(to bottom right, #f8bbd0, #fce4ec);
       color: #222;
     }
     .container {
       max-width: 800px;
       margin: 40px auto;
       padding: 40px;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+      background-color: #ffffffcc;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
     h1 {
       text-align: center;
       color: #c2185b;
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      margin-bottom: 5px;
     }
     h2 {
       text-align: center;
-      color: #555;
-      font-size: 20px;
+      color: #6a1b9a;
+      font-size: 18px;
       margin-bottom: 30px;
     }
     h3 {
       color: #b71c1c;
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 10px;
       border-bottom: 2px solid #f8bbd0;
       padding-bottom: 5px;
@@ -47,23 +48,46 @@
       margin: 0;
     }
     li {
-      padding: 12px 20px;
       background-color: #fce4ec;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 12px;
+      font-size: 17px;
+      font-weight: 500;
       position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    li .price {
-      display: none;
-      margin-top: 8px;
+    li:hover {
+      background-color: #f8bbd0;
+    }
+    li::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
       font-weight: bold;
       color: #880e4f;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+    li.active::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .price {
+      display: none;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #880e4f;
+      font-size: 16px;
     }
     li.active .price {
       display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 600px) {
       .container {
