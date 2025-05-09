@@ -4,55 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SalonBlackPnk Price List</title>
-
-  <!-- ✅ Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right bottom, #fce4ec, #ffffff);
-      color: #333;
-      background-attachment: fixed;
-      background-size: cover;
+      background-color: #fff0f5;
+      color: #222;
     }
 
     .container {
       max-width: 800px;
       margin: 40px auto;
       padding: 40px;
+      background-color: #ffffffee;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 48px;
       text-align: center;
-      color: #ad1457;
+      color: #d81b60;
+      font-size: 42px;
       margin-bottom: 5px;
-      text-shadow: 2px 2px 4px #fff0f5;
+      letter-spacing: 1px;
     }
 
     h2 {
       text-align: center;
-      color: #6a1b9a;
+      color: #6a1b9a; /* Violet */
       font-size: 18px;
       margin-bottom: 30px;
-      text-shadow: 1px 1px 2px #f3e5f5;
     }
 
     h3 {
-      color: #880e4f;
+      color: #c2185b;
       font-size: 22px;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #f8bbd0;
-      padding-bottom: 5px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #f48fb1;
+      padding-bottom: 6px;
     }
 
     .service-category {
@@ -66,21 +57,21 @@
     }
 
     li {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      padding: 14px 20px;
+      background-color: #fce4ec;
+      border: 1px solid #f8bbd0;
+      border-radius: 12px;
+      padding: 16px 20px;
       margin-bottom: 12px;
       font-size: 17px;
       font-weight: 500;
       position: relative;
       cursor: pointer;
-      box-shadow: inset 1px 1px 3px #fff, inset -1px -1px 3px #dba7ba;
-      backdrop-filter: blur(10px);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
 
     li:hover {
-      background-color: rgba(248, 187, 208, 0.3);
+      background-color: #f8bbd0;
     }
 
     li::after {
@@ -88,7 +79,7 @@
       position: absolute;
       right: 20px;
       font-weight: bold;
-      color: #ad1457;
+      color: #c2185b;
       font-size: 20px;
       transition: transform 0.3s ease;
     }
@@ -104,7 +95,6 @@
       font-weight: bold;
       color: #ad1457;
       font-size: 16px;
-      text-shadow: 1px 1px 2px #ffe5ec;
     }
 
     li.active .price {
@@ -115,71 +105,103 @@
       text-align: center;
       margin-top: 40px;
       font-size: 14px;
-      color: #880e4f;
+      color: #d81b60;
       font-weight: 500;
+    }
+
+    .media-sample {
+      display: block;
+      max-width: 300px;
+      width: 100%;
+      margin: 20px auto 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-link {
+      display: block;
+      text-align: center;
+      font-weight: 600;
+      color: #c2185b;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+
+    .video-link:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 600px) {
       .container {
         padding: 20px;
       }
+
+      h1 {
+        font-size: 32px;
+      }
     }
   </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('li').forEach(item => {
-        item.addEventListener('click', () => {
-          item.classList.toggle('active');
-        });
-      });
-
-      const datetimeEl = document.getElementById('datetime');
-      function updateDateTime() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const date = now.toLocaleDateString(undefined, options);
-        const time = now.toLocaleTimeString();
-        datetimeEl.textContent = `Today is ${date}, ${time}`;
-      }
-      updateDateTime();
-      setInterval(updateDateTime, 1000);
-    });
-  </script>
 </head>
 <body>
   <div class="container">
     <h1>SalonBlackPnk</h1>
     <h2>Professional Beauty Services</h2>
 
+    <img 
+      src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/277554767_393993086065557_4911658283217571871_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TaohwAOCq1cQ7kNvwFtGn9r&_nc_oc=Adljxsmd3BKzNMgccfv6L_xVrSrV9_dWGeFOrwC4hGKI1QIPoReN6IDx554mTGTSf0Y&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=uFyZ_d1OFGZpr4KEV1Bvsw&oh=00_AfJ-Ez8-yyG42uhujRdeiNQjPTb84fSbJjVUm7re0D8vAg&oe=6823803E" 
+      alt="Salon Service Sample"
+      class="media-sample"
+    />
+
+    <a href="https://www.facebook.com/reel/909094560064871" target="_blank" class="video-link">
+      👉 Click here to watch our services
+    </a>
+
     <div class="service-category">
       <h3>Hair Services</h3>
       <ul>
-        <li>Hair Cut<div class="price">PHP 150.00</div></li>
-        <li>Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
-        <li>Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
-        <li>Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
-        <li>Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
-        <li>Cold Wave (Short)<div class="price">PHP 800.00</div></li>
-        <li>Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
-        <li>Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
-        <li>Hi Lite (Short)<div class="price">PHP 500.00</div></li>
-        <li>Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
-        <li>Rebond (Short)<div class="price">PHP 1,000.00</div></li>
-        <li>Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
-        <li>Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
+        <li onclick="togglePrice(this)">Hair Cut<div class="price">PHP 150.00</div></li>
+        <li onclick="togglePrice(this)">Hair Color with Trim (Short)<div class="price">PHP 500.00</div></li>
+        <li onclick="togglePrice(this)">Hair Color with Trim (Long)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="togglePrice(this)">Ash Gray (Short)<div class="price">PHP 1,500.00</div></li>
+        <li onclick="togglePrice(this)">Ash Gray (Long)<div class="price">PHP 2,000.00</div></li>
+        <li onclick="togglePrice(this)">Cold Wave (Short)<div class="price">PHP 800.00</div></li>
+        <li onclick="togglePrice(this)">Cold Wave (Long)<div class="price">PHP 1,500.00</div></li>
+        <li onclick="togglePrice(this)">Treatment (Hair Spa) Any Length<div class="price">PHP 500.00</div></li>
+        <li onclick="togglePrice(this)">Hi Lite (Short)<div class="price">PHP 500.00</div></li>
+        <li onclick="togglePrice(this)">Hi Lite (Long)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="togglePrice(this)">Rebond (Short)<div class="price">PHP 1,000.00</div></li>
+        <li onclick="togglePrice(this)">Rebond with Color Brazilian (Long)<div class="price">PHP 2,500.00</div></li>
+        <li onclick="togglePrice(this)">Rebond with Color Brazilian (Short)<div class="price">PHP 2,000.00</div></li>
       </ul>
     </div>
 
     <div class="service-category">
       <h3>Hand and Foot Services</h3>
       <ul>
-        <li>Manicure<div class="price">PHP 150.00</div></li>
-        <li>Pedicure<div class="price">PHP 150.00</div></li>
+        <li onclick="togglePrice(this)">Manicure<div class="price">PHP 150.00</div></li>
+        <li onclick="togglePrice(this)">Pedicure<div class="price">PHP 150.00</div></li>
       </ul>
     </div>
 
     <div class="datetime" id="datetime"></div>
   </div>
+
+  <script>
+    function togglePrice(element) {
+      element.classList.toggle('active');
+    }
+
+    const datetimeEl = document.getElementById('datetime');
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const date = now.toLocaleDateString(undefined, options);
+      const time = now.toLocaleTimeString();
+      datetimeEl.textContent = `Today is ${date}, ${time}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
 </body>
 </html>
