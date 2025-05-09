@@ -95,6 +95,13 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+    .datetime {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #6a1b9a;
+      font-weight: 500;
+    }
     @media (max-width: 600px) {
       .container {
         padding: 20px;
@@ -108,6 +115,17 @@
           item.classList.toggle('active');
         });
       });
+
+      const datetimeEl = document.getElementById('datetime');
+      function updateDateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const date = now.toLocaleDateString(undefined, options);
+        const time = now.toLocaleTimeString();
+        datetimeEl.textContent = `Today is ${date}, ${time}`;
+      }
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
     });
   </script>
 </head>
@@ -142,6 +160,8 @@
         <li>Pedicure<div class="price">PHP 150.00</div></li>
       </ul>
     </div>
+
+    <div class="datetime" id="datetime"></div>
   </div>
 </body>
 </html>
